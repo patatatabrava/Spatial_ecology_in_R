@@ -1,4 +1,4 @@
-# Spatial_ecology_in_R :seedling:
+# Spatial ecology in R :seedling:
 ## Student 📚
 Cloé Rouch, enrolled in the Advanced Mathematics for Applications master's degree
 ## Files in this repository :computer:
