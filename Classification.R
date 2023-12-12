@@ -2,6 +2,8 @@
 
 library(imageRy)
 library(terra)
+library(ggplot2)
+library(patchwork)
 
 im.list()
 sun <- im.import("Solar_orbiter_s_first_viezs_of_the_Sun_pillars.jpg")
@@ -56,5 +58,12 @@ tabout <- data.frame(class, y1992, y2006) # "tabout" as in "tab out"
 print(tabout)
 
 # Final output
-p1 <- ggplot(tabout, aes(x = class, y = y1992, color = class)) + geom_bar(stat = "identity", fill = "white") 
-# "aes" stands for "aesthetics". "bar" means we're using a histogram 
+
+p1 <- ggplot(tabout, aes(x = class, y = y1992, color = class)) + geom_bar(stat = "identity", fill = "white") + ylim(c(0,100))
+# "aes" stands for "aesthetics", "bar" means we're using a histogram, the ylim-term is for using the same scale in both graphs. 
+p2 <- ggplot(tabout, aes(x = class, y = y2006, color = class)) + geom_bar(stat = "identity", fill = "white") + ylim(c(0,100))
+p1
+p2
+# I don't understand when I should use "print" and when I shouldn't.
+p1 + p2 # This gives the 2 plots together side-by-side thanks to the patchwork library.
+
