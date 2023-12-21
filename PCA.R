@@ -21,3 +21,16 @@ plot(pc1sd3, col = viridisc)
 
 pc1sd7 <- focal(pc1, matrix(1/9, 7, 7), fun = sd)
 plot(pc1sd7, col = viridisc)
+
+# Plotting everything together, just to get a view of everything we've done
+par(mfrow = c(2,3))
+im.plotRGB(sent, 1, 2, 3)
+# plot(sd3, col = viridisc)
+# plot(sd7, col = viridisc) See those two in the prof's code
+plot(pc1sd3, col = viridisc)
+plot(pc1sd7, col = viridisc)
+
+# Method 2
+# sdstack <- c(sd3, sd7, pc1sd3, pc1sd7)
+# names(sdstack) <- c("sd3", "sd7", "pc1sd3", "pc1sd7") # This gives names to each of the layers of sdstack
+# plot(sdstack, col = viridisc)
