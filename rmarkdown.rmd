@@ -18,13 +18,19 @@ This language is useful for writing reports, for example.
 <!-- these 3 symbols also go at the end of your code -->
 
 You can also choose not to make the calculations:
-
 ```{r, eval = FALSE} 
 2 + 3 
 ```
-<!-- if a function in your code doesn't give an output, it doesn't matter whether you write "eval = TRUE" or "eval = FALSE". Btw, you can also just write "eval = T" or "eval = F" -->
 
+<!-- if a function in your code doesn't give an output, it doesn't matter whether you write "eval = TRUE" or "eval = FALSE". Well, actually, if you write "FALSE" the code won't be run at all, so, in this example, the library won't be loaded. Btw, you can also just write "eval = T" or "eval = F" -->
+
+Importing an image which will be useful soon:
 ```{r, eval = TRUE} 
 library(imageRy)
+mato1992 <- im.import("matogrosso_l5_1992_lrg.RGB")
 ``` 
 
+To plot an image in RGB with the near infrared band on top of ther red one, write:
+```{r, eval = FALSE} 
+im.plotRGB(mato1992, r = 2, g = 1, b = 3)
+```
