@@ -9,7 +9,7 @@ output: html_document
 
 texty text
 
-<!-- the 3 symbols at the start mean we're going to write code (as opposed to text). The "r" means we're writing the code in R. "eval = TRUE" gives the output of functions/operations, instead of leaving the expressions as is.-->
+<!-- the 3 symbols at the start mean we're going to write code (as opposed to text). The "r" means we're writing the code in R. "eval = TRUE" gives the output of the code in this section, instead of just showing the expressions. -->
 <!-- the comments must be written outside the code. -->
 
 ```{r, eval = TRUE} 
@@ -22,3 +22,9 @@ You can also choose not to make the calculations:
 ```{r, eval = FALSE} 
 2 + 3 
 ```
+<!-- if a function in your code doesn't give an output, it doesn't matter whether you write "eval = TRUE" or "eval = FALSE". Btw, you can also just write "eval = T" or "eval = F" -->
+
+```{r, eval = TRUE} 
+library(imageRy)
+``` 
+
