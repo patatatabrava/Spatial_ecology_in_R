@@ -1,6 +1,6 @@
 ---
 title: "MarkdownReport"
-author: "me"
+author: "patata"
 date: "2024-01-09"
 output: html_document
 ---
@@ -8,3 +8,17 @@ output: html_document
 # My first markdown document
 
 texty text
+
+<!-- the 3 symbols at the start mean we're going to write code (as opposed to text). The "r" means we're writing the code in R. "eval = TRUE" gives the output of functions/operations, instead of leaving the expressions as is.-->
+<!-- the comments must be written outside the code. -->
+
+```{r, eval = TRUE} 
+2 + 3 
+``` 
+<!-- these 3 symbols also go at the end of your code -->
+
+You can also choose not to make the calculations:
+
+```{r, eval = FALSE} 
+2 + 3 
+```
