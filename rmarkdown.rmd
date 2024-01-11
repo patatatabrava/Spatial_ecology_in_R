@@ -7,7 +7,7 @@ output: html_document
 
 # My first markdown document
 
-texty text
+This language is useful for writing reports, for example.
 
 <!-- the 3 symbols at the start mean we're going to write code (as opposed to text). The "r" means we're writing the code in R. "eval = TRUE" gives the output of the code in this section, instead of just showing the expressions. -->
 <!-- the comments must be written outside the code. -->
