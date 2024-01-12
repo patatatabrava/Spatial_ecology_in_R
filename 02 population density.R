@@ -1,23 +1,13 @@
-# Code related to population ecology
+# A package is needed for point pattern analysis. Here is its description: https://cran.r-project.org/web/packages/spatstat/index.html
+install.packages("spatstat") # this line is for installing the spatstat library into R
+library(spatstat) # that one is for calling it for this paticular script
 
-# A package is needed for point pattern analysis
-install.packages("spatstat")
-library(spatstat)
-
-# let's use the bei data:
-# data description:
-# https://CRAN.R-project.org/package=spatstat
-
+# We will use the bei dataset from the spatstat library.
 bei
 
-# plotting the data
-plot(bei)
+plot(bei, cex=.2, pch=19) # plots bei as a set of full points of size .2
 
-# changing dimension - cex
-plot(bei, cex=.2)
-
-# changing the symbol - pch
-plot(bei, cex=.2, pch=19)
+############################################## Stopped working here!!!!!!!!!!!!!!!!!!!
 
 # additional datasets
 bei.extra
