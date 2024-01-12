@@ -22,8 +22,7 @@ plot(people, microplastics) # shows the number of microplastics as a function of
 plot(people, microplastics, xlab = "number of people", ylab = "microplastics") # puts labels on the axes
 
 plot(people, microplastics, pch = 19) # "pch = 19" selects point shape 19 (see tables on the interwebz)
-
-# https://www.google.com/search?client=ubuntu-sn&hs=yV6&sca_esv=570352775&channel=fs&sxsrf=AM9HkKknoSOcu32qjoErsqX4O1ILBOJX4w:1696347741672&q=point+symbols+in+R&tbm=isch&source=lnms&sa=X&ved=2ahUKEwia9brkm9qBAxVrQvEDHbEYDuMQ0pQJegQIChAB&biw=1760&bih=887&dpr=1.09#imgrc=lUw3nrgRKV8ynM
+# Link to such tables: https://www.google.com/search?client=ubuntu-sn&hs=yV6&sca_esv=570352775&channel=fs&sxsrf=AM9HkKknoSOcu32qjoErsqX4O1ILBOJX4w:1696347741672&q=point+symbols+in+R&tbm=isch&source=lnms&sa=X&ved=2ahUKEwia9brkm9qBAxVrQvEDHbEYDuMQ0pQJegQIChAB&biw=1760&bih=887&dpr=1.09#imgrc=lUw3nrgRKV8ynM
 
 plot(people, microplastics, pch = 19, cex = 2) # "cex" stands for "character exageration", it chooses the size of the points
 plot(people, microplastics, pch = 19, cex = 2, col = "blue") # "col = "blue"" is pretty self-explanatory
