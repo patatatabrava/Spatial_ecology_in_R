@@ -34,3 +34,10 @@ To plot an image in RGB with the near infrared band on top of ther red one, writ
 ```{r, eval = FALSE} 
 im.plotRGB(mato1992, r = 2, g = 1, b = 3)
 ```
+
+The warnings can also be disabled:
+```{r, eval = TRUE, warning = F} 
+mato1992 <- im.import("matogrosso_l5_1992219_lrg.jpg")
+``` 
+
+<!-- if you want to get a pdf file instead of an HTML one, use the arrow to the right of "knit" to select "Knit to PDF" -->
