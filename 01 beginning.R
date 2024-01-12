@@ -1,4 +1,4 @@
-# R can be used to make calculations. You don't have to use "print" to visualize the output of a function, it automatically appears in the console, after a quotation of that line of code (at least in R studio)
+# R can be used to make calculations. You don't have to use "print" to visualize the output of a function, it automatically appears in the console, after a quote of the corresponding line of code (at least in R studio)
 2 + 3
 
 # This is the way you assign a value to an object:
