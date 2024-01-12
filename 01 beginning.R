@@ -13,7 +13,8 @@ final
 
 final^2 # this is the syntax for taking exponents
 
-# The c() function is used to make arrays. It forces all its arguments into a common type and its output is of the same type. "c" stands for "concatenate":
+# The c() function is used to make arrays. It forces all its arguments into a common type and its output is of the same type. "c" stands for "concatenate"
+# Examples:
 microplastics <- c(10, 20, 30, 50, 70) 
 people <- c(100, 500, 600, 1000, 2000)
 
