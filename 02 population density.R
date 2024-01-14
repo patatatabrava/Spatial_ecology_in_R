@@ -4,7 +4,7 @@ library(spatstat) # that one is for calling it for this particular script
 
 # We will use the bei dataset from the spatstat library. Description: "A point pattern giving the locations of 3605 trees in a tropical rain forest. Accompanied by covariate data giving the elevation (altitude) and slope of elevation in the study region." This description is given as "hover" text when you type "bei" in the console in R studio.
 
-bei # loads the dataset
+bei # loads the dataset, but this line doesn't seem to be necessary for what follows
 plot(bei, cex=.2, pch=19) # plots bei as a set of filled up points of size .2
 
 bei.extra # loads the extra datasets attached to bei
