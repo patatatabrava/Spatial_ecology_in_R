@@ -3,19 +3,21 @@
 library(sdm) 
 library(terra)
 
-file <- system.file("external/species.shp", package="sdm") # the system.file() function takes two arguments: the pathway inside the package directory to the file we want to use, and the package we're using. It returns the whole path to the desired file in the computer
+file <- system.file("external/species.shp", package = "sdm") # the system.file() function takes two arguments: the pathway inside the package directory to the file we want to use, and the package we're using. It returns the whole path to the desired file in the computer
 rana <- vect(file) # the vect() function maked the file into a usable object
 plot(rana)
 
-# Selecting presences:
+### Selecting presences ###
+
 pres <- rana[rana$Occurrence == 1,] # "rana[rana$Occurrence == 1,]" selects the points within rana for which the Occurence attribute equals 1. The coma signals the end of the query and is optional
 plot(pres)
 
-# Exercise: select absences and call them abse
+### Exercise: select absences and call them abse ###
+
 abse <- rana[rana$Occurrence==0,]
 plot(abse)
 
-# Exercise: plot presences and absences, one beside the other
+### Exercise: plot presences and absences, one beside the other ###
 par(mfrow=c(1,2))
 plot(pres)
 plot(abse)
@@ -23,55 +25,55 @@ plot(abse)
 # Your new friend in case of graphical nulling:
 dev.off() # this closes all plots
 
-# Exercise: plot pres and abse altogether with two different colours
+### Exercise: plot pres and abse altogether with two different colours ###
+
 plot(pres, col = "dark blue")
-points(abse, col = "light blue") # this function draws the data as points in the current plot
+points(abse, col = "light blue") # this function draws the data as points in the previous plot
 
 ### Predictors: environmental variables ###
 
-# file <- system.file("external/species.shp", package="sdm")
-# rana <- vect(file)
-
-# elevation predictor
-elev <- system.file("external/elevation.asc", package="sdm") 
-elevmap <- rast(elev) # from terra package
+# Elevation predictor #
+elev <- system.file("external/elevation.asc", package = "sdm") 
+elevmap <- rast(elev) # the rast() function is from terra package
 plot(elevmap)
-points(pres, cex=.5)
+points(pres, cex = .5)
 
-# temperature predictor
-temp <- system.file("external/temperature.asc", package="sdm") 
-tempmap <- rast(temp) # from terra package
+# Temperature predictor #
+temp <- system.file("external/temperature.asc", package = "sdm") 
+tempmap <- rast(temp)
 plot(tempmap)
-points(pres, cex=.5)
+points(pres, cex = .5)
 
-# exrcise: do the same with vegetation cover
-vege <- system.file("external/vegetation.asc", package="sdm") 
-vegemap <- rast(vege) # from terra package
+### Exercise: do the same with vegetation cover ###
+
+vege <- system.file("external/vegetation.asc", package = "sdm") 
+vegemap <- rast(vege)
 plot(vegemap)
-points(pres, cex=.5)
+points(pres, cex = .5)
 
-# exrcise: do the same with vegetation cover
-prec <- system.file("external/precipitation.asc", package="sdm") 
-precmap <- rast(prec) # from terra package
+### Exercise: do the same with vegetation cover ###
+
+prec <- system.file("external/precipitation.asc", package = "sdm") 
+precmap <- rast(prec)
 plot(precmap)
-points(pres, cex=.5)
+points(pres, cex = .5)
 
-# final multiframe
+### Building the final multiframe ###
 
-par(mfrow=c(2,2))
+par(mfrow = c(2,2))
 
-# elev
+# elev #
 plot(elevmap)
-points(pres, cex=.5)
+points(pres, cex = .5)
 
-# temp
+# temp #
 plot(tempmap)
-points(pres, cex=.5)
+points(pres, cex = .5)
 
-# vege
+# vege #
 plot(vegemap)
-points(pres, cex=.5)
+points(pres, cex = .5)
 
-# prec
+# prec #
 plot(precmap)
-points(pres, cex=.5)
+points(pres, cex = .5)
