@@ -20,14 +20,15 @@ par(mfrow=c(1,2))
 plot(pres)
 plot(abse)
 
-# your new friend in case of graphical nulling:
-dev.off()
+# Your new friend in case of graphical nulling:
+dev.off() # this closes all plots
 
-# exercise: plot pres and abse altogether with two different colours
-plot(pres, col="dark blue")
-points(abse, col="light blue")
+# Exercise: plot pres and abse altogether with two different colours
+plot(pres, col = "dark blue")
+points(abse, col = "light blue") # this function draws the data as points in the current plot
 
-# predictors: environmental variables
+### Predictors: environmental variables ###
+
 # file <- system.file("external/species.shp", package="sdm")
 # rana <- vect(file)
 
