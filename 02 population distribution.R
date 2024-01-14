@@ -1,6 +1,6 @@
-# Why populations disperse over the landscape in a certain manner?
+# Why do populations disperse over the landscape in a certain manner? To answer this question, we will use two libraries: sdm and terra. Their descriptions can be found 
 
-library(sdm)
+library(sdm) 
 library(terra)
 
 file <- system.file("external/species.shp", package="sdm")
