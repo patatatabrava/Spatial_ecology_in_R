@@ -28,8 +28,7 @@ densitymap <- density(bei) # apparently, the density() function "computes kernel
 plot(densitymap)
 points(bei, cex=.2)
 
-cl <- colorRampPalette(c("black", "red", "orange", "yellow"))(100) # description: "These functions return functions that interpolate a set of given colors to create new color palettes (like topo.colors) and color ramps, functions that map the interval [0, 1] to colors (like grey)." Basically, it creates the color palette
-plot(densitymap, col = cl) # plots densitymap with the palette we just created
+cl <- colorRampPalette(c("black", "red", "orange", "yellow"))(100) # creates the color palette. Full description: "These functions return functions that interpolate a set of given colors to create new color palettes (like topo.colors) and color ramps, functions that map the interval [0, 1] to colors (like grey)." 
 
 cl <- colorRampPalette(c("black", "red", "orange", "yellow"))(4) # changes the number of intermediate colors between each of the colors in the array
 plot(densitymap, col=cl)
