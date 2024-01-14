@@ -34,7 +34,7 @@ points(abse, col = "light blue") # this function draws the data as points in the
 
 # Elevation predictor #
 elev <- system.file("external/elevation.asc", package = "sdm") 
-elevmap <- rast(elev) # the rast() function is from terra package
+elevmap <- rast(elev) # the rast() function is from terra package. Description: "Returns the x and y coordinates of each pixel in a pixel image or binary mask."
 plot(elevmap)
 points(pres, cex = .5)
 
