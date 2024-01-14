@@ -4,23 +4,18 @@ library(sdm)
 library(terra)
 
 file <- system.file("external/species.shp", package="sdm") # the system.file() function takes two arguments: the pathway inside the package directory to the file we want to use, and the package we're using. It returns the whole path to the desired file in the computer
-
-################### Stopped here!!!!!!!!!!!!!!!!!11
-
-rana <- vect(file)
-rana$Occurrence
-
+rana <- vect(file) # the vect() function maked the file into a usable object
 plot(rana)
 
-# Selecting presences
-pres <- rana[rana$Occurrence==1,]
+# Selecting presences:
+pres <- rana[rana$Occurrence == 1,] # "rana[rana$Occurrence == 1,]" selects the points within rana for which the Occurence attribute equals 1. The coma signals the end of the query and is optional
 plot(pres)
 
-# exercise: select absence and call them abse
+# Exercise: select absences and call them abse
 abse <- rana[rana$Occurrence==0,]
 plot(abse)
 
-# exrecise: plot presences and absences, one beside the other
+# Exercise: plot presences and absences, one beside the other
 par(mfrow=c(1,2))
 plot(pres)
 plot(abse)
