@@ -1,9 +1,11 @@
-# Why do populations disperse over the landscape in a certain manner? To answer this question, we will use two libraries: sdm and terra. Their descriptions can be found 
+# Why do populations disperse over the landscape in a certain manner? To answer this question, we will use two libraries: sdm and terra. Their descriptions can be found at https://cran.r-project.org/web/packages/sdm/index.html and https://cran.r-project.org/web/packages/terra/index.html respectively. sdm is a framework for developping species distribution models, and terra contains methods for spatial data analysis with vector and raster data
 
 library(sdm) 
 library(terra)
 
-file <- system.file("external/species.shp", package="sdm")
+file <- system.file("external/species.shp", package="sdm") # the system.file() function takes two arguments: the pathway inside the package directory to the file we want to use, and the package we're using. It returns the whole path to the desired file in the computer
+
+################### Stopped here!!!!!!!!!!!!!!!!!11
 
 rana <- vect(file)
 rana$Occurrence
