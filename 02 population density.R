@@ -16,8 +16,7 @@ plot(bei.extra$elev) # the '$' selects the elev variable in the extra data
 elevation <- bei.extra$elev
 plot(elevation)
 
-### Second method to select variables ###
-
+# Second method #
 elevation2 <- bei.extra[[1]] # the double parentheses are because bei.extra is a 2D dataset
 plot(elevation2)
 
