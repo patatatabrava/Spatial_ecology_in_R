@@ -10,15 +10,19 @@ plot(bei, cex = .2, pch = 19) # plots bei as a set of solid circles of size .2
 bei.extra # loads the extra data related to bei
 plot(bei.extra)
 
+### Selecting a variable in the dataset ###
+
 plot(bei.extra$elev) # the '$' selects the elev variable in the extra data
 elevation <- bei.extra$elev
 plot(elevation)
 
-# Second method to select variables:
+### Second method to select variables ###
+
 elevation2 <- bei.extra[[1]] # the double parentheses are because bei.extra is a 2D dataset
 plot(elevation2)
 
-# Passing from points to a continuous surface:
+### Passing from points to a continuous surface ###
+
 densitymap <- density(bei) # apparently, the density() function "computes kernel density estimates". I don't know what this means, but I do know we're using it to build a density map
 plot(densitymap)
 points(bei, cex=.2)
@@ -34,10 +38,12 @@ plot(densitymap, col=clnew)
 
 elev <- elevation # renaming "elevation" because we're lazy ^^
 
-# Building a multiframe:
+### Building a multiframe ###
+
 par(mfrow = c(1,2)) # creates a multiframe with 1 line and 2 columns. Description of the par function: "par can be used to set or query graphical parameters. Parameters can be set by specifying them as arguments to par in tag = value form, or by passing them as a list of tagged values." Here, we're setting the mfrow parameter
 
-# Plotting densitymap and elev in the multiframe:
+### Plotting densitymap and elev in the multiframe ###
+
 plot(densitymap)
 plot(elev)
 # The first plot appears on the left
