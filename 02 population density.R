@@ -6,7 +6,8 @@ library(spatstat) # that one is for calling it for this particular script
 # Description: "A point pattern giving the locations of 3605 trees in a tropical rain forest. Accompanied by covariate data giving the elevation (altitude) and slope of elevation in the study region." 
 # This description is given as "hover" text when you type "bei" in the console in R studio.
 
-bei # loads the dataset, but this line doesn't seem to be necessary for what follows
+bei # loads the dataset, but this line doesn't seem to be necessary for what follows. This is not the standard way to load a dataset. According to the documentation "datasets in spatstat are lazy-loaded, so you can simply type the name of the dataset to use it; there is no need to type data(amacrine) etc."
+
 plot(bei, cex = .2, pch = 19) # plots bei as a set of solid circles of size .2
 
 bei.extra # loads the extra data related to bei
