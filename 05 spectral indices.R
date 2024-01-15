@@ -29,7 +29,7 @@ im.plotRGB(m2006, r = 2, g = 3, b = 1)
 
 # Recall that the bands are in the following order: 1 = NIR, 2 = red, 3 = green
 
-dvi1992 = m1992[[1]] - m1992[[2]] # here, we use "=" and not "<-" because we are making an operation
+dvi1992 = m1992[[1]] - m1992[[2]] # here, we (can) use "=" and not "<-" because we are making an operation
 plot(dvi1992)
 
 cl <- colorRampPalette(c("darkblue", "yellow", "red", "black")) (100)
@@ -40,25 +40,31 @@ plot(dvi1992, col = cl)
 dvi2006 = m2006[[1]] - m2006[[2]]
 plot(dvi2006, col = cl)
 
-# NDVI
-ndvi1992 = (m1992[[1]] - m1992[[2]]) / (m1992[[1]] + m1992[[2]])
+### Calculating and plotting ndvi, the quotient between dvi and the sum of the NIR and red bands, for the old image ###
+
+# I don't understand what ndvi represents
 ndvi1992 = dvi1992 / (m1992[[1]] + m1992[[2]])
 plot(ndvi1992, col = cl)
 
-# NDVI
+### Calculating and plotting ndvi for the new image ###
+
 ndvi2006 = dvi2006 / (m2006[[1]] + m2006[[2]])
 plot(ndvi2006, col = cl)
 
-# par
+### Making a multiframe with both plots ###
+
 par(mfrow = c(1,2))
 plot(ndvi1992, col = cl)
 plot(ndvi2006, col = cl)
 
-clvir <- colorRampPalette(c("violet", "dark blue", "blue", "green", "yellow"))(100) # specifying a color scheme
-par(mfrow = c(1,2))
-plot(ndvi1992, col=clvir)
-plot(ndvi2006, col=clvir)
+### Making another multiframe with a different color scheme and the same data ###
 
-# speeding up calculation
+clvir <- colorRampPalette(c("violet", "dark blue", "blue", "green", "yellow"))(100)
+par(mfrow = c(1,2))
+plot(ndvi1992, col = clvir)
+plot(ndvi2006, col = clvir)
+
+### Using a function from imageRy to speed up the calculation ###
+
 ndvi2006a <- im.ndvi(m2006, 1, 2)
 plot(ndvi2006a, col = cl)
