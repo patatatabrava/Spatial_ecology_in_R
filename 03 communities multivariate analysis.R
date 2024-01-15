@@ -2,7 +2,7 @@
 
 library(vegan)
 
-data(dune)
+data(dune) # loads the dune dataset. It concerns vegetation and environment in Dutch dune meadows (see documentation)
 head(dune)
 
 ord <- decorana(dune)
