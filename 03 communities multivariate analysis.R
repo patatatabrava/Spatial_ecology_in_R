@@ -2,8 +2,8 @@
 
 library(vegan)
 
-data(dune) # loads the dune dataset. It concerns vegetation and environment in Dutch dune meadows (see documentation)
-head(dune)
+data(dune) # loads the dune dataset. It concerns vegetation and environment in Dutch dune meadows (see documentation). The data() function is the standard way of loading data
+head(dune) # returns the first part of the dataset
 
 ord <- decorana(dune)
 
