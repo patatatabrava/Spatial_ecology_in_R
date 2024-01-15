@@ -5,7 +5,7 @@ library(vegan)
 data(dune) # loads the dune dataset. It concerns vegetation and environment in Dutch dune meadows (see documentation). The data() function is the standard way of loading data
 head(dune) # returns the first part of the dataset
 
-ord <- decorana(dune) # "decorana" stands for "Detrended Correspondence Analysis and Basic Reciprocal Averaging". Description of the function: "Performs detrended correspondence analysis and basic reciprocal averaging or orthogonal correspondence analysis." I don't understand what it does
+ord <- decorana(dune) # description: "Performs detrended correspondence analysis and basic reciprocal averaging or orthogonal correspondence analysis." I don't understand what it does
 
 ldc1 =  3.7004 
 ldc2 =  3.1166 
