@@ -1,4 +1,4 @@
-# We will learn to visualize remote sensing (satellite) data using the imageRy library
+# We will learn how to visualize remote sensing (satellite) data using the imageRy library
 # It isn't on CRAN, but, instead, it can be found at: https://github.com/ducciorocchini/imageRy/blob/main/DESCRIPTION
 # The description of the datasets is at: https://github.com/ducciorocchini/imageRy/blob/main/data_description.md
 
