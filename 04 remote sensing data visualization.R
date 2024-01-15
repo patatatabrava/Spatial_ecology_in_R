@@ -72,4 +72,4 @@ im.plotRGB(stacksent, r = 4, g = 3, b = 2) # plots the NIR instead of the red, t
 im.plotRGB(stacksent, r = 3, g = 4, b = 2) # plots the red on the red, the NIR on the green and the green the blue
 im.plotRGB(stacksent, r = 3, g = 2, b = 4) # plots the red on the red, the green on the green and the NIR the blue
 
-pairs(stacksent)
+pairs(stacksent) # creates a matrix of scatterplots. It shows the correlation between the different variables
