@@ -26,7 +26,7 @@ plot(pres)
 plot(abse)
 
 # Your new friend in case of graphical nulling:
-dev.off() # this closes all plots
+dev.off() # this closes all plots. "dev" stands for "devices"
 
 ### Exercise: plot pres and abse altogether with two different colours ###
 
