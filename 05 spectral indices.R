@@ -6,7 +6,7 @@ library(terra)
 
 im.list() # we want to know the name of the image we need to import, so we have a look at the list of all the data in imageRy
 
-### Importing and plotting the old image of the Mato grosso ###
+### Importing and plotting the old image of the Mato Grosso ###
 
 m1992 <- im.import("matogrosso_l5_1992219_lrg.jpg")   
 # The bands are in the following order: 1 = NIR, 2 = red, 3 = green
@@ -15,7 +15,7 @@ im.plotRGB(m1992, 1, 2, 3) # different syntax for doing the same thing as in the
 im.plotRGB(m1992, r = 2, g = 1, b = 3) 
 im.plotRGB(m1992, r = 2, g = 3, b = 1) # in this plot, the red is on the red, the green is on the green, and the NIR is on the blue. There is no blue in our file, so we can't make a normal RGB plot
 
-### Importing and plotting the recent image of the Mato grosso ###
+### Importing and plotting the recent image of the Mato Grosso ###
 
 m2006 <- im.import("matogrosso_ast_2006209_lrg.jpg")
 im.plotRGB(m2006, r = 2, g = 3, b = 1)
