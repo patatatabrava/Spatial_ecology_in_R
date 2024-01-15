@@ -1,4 +1,4 @@
-# A package is needed for point pattern analysis. Here is its description: https://cran.r-project.org/web/packages/spatstat/index.html
+# A package is needed for point pattern analysis. Here is its documentation: https://cran.r-project.org/web/packages/spatstat/index.html
 install.packages("spatstat") # this line is for installing the spatstat library into R
 library(spatstat) # that one is for calling it for this particular script
 
