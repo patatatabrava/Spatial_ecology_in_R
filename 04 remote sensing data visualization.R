@@ -68,7 +68,7 @@ plot(b8, col = cln)
 # band 8 (NIR) element 4, stacksent[[4]]
 
 im.plotRGB(stacksent, r = 3, g = 2, b = 1) # plots the image with each color in its normal place
-im.plotRGB(stacksent, r = 4, g = 3, b = 2) # plots the NIR instead of the red, the red instead of the green and the green instead of the blue
+im.plotRGB(stacksent, r = 4, g = 3, b = 2) # plots the NIR on the red, the red on the green and the green on the blue, ie the NIR data appears red, the red data appears green and the green data appears blue in the image
 im.plotRGB(stacksent, r = 3, g = 4, b = 2) # plots the red on the red, the NIR on the green and the green the blue
 im.plotRGB(stacksent, r = 3, g = 2, b = 4) # plots the red on the red, the green on the green and the NIR the blue
 
