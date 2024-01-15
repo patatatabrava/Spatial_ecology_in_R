@@ -1,4 +1,5 @@
-# We will work with vegetation indices
+# We will calculate two vegetation indices: the DVI, for Difference Vegetation Index, and the NDVI, for Normalized Difference Vegetation Index. 
+# They are indicators of the vegetations health which it can be useful to monitor over time.
 
 library(imageRy)
 library(terra)
@@ -25,8 +26,9 @@ par(mfrow = c(1,2))
 im.plotRGB(m1992, r = 2, g = 3, b = 1)
 im.plotRGB(m2006, r = 2, g = 3, b = 1)
 
-### Taking the difference between the NIR and red bands in the old image and plotting it ###
+### Calculating and plotting the DVI for the old image ###
 
+# The DVI is the difference between the NIR and red bands
 # Recall that the bands are in the following order: 1 = NIR, 2 = red, 3 = green
 
 dvi1992 = m1992[[1]] - m1992[[2]] # here, we (can) use "=" and not "<-" because we are making an operation
@@ -35,18 +37,18 @@ plot(dvi1992)
 cl <- colorRampPalette(c("darkblue", "yellow", "red", "black")) (100)
 plot(dvi1992, col = cl)
 
-### Exercise: calculate the dvi (ie the difference between the NIR and red bands) of 2006 ###
+### Exercise: calculate the DVI for the new image ###
 
 dvi2006 = m2006[[1]] - m2006[[2]]
 plot(dvi2006, col = cl)
 
-### Calculating and plotting ndvi, the quotient between dvi and the sum of the NIR and red bands, for the old image ###
+### Calculating and plotting the NDVI for the old image ###
 
-# I don't understand what ndvi represents
+# The NDVI is the ratio between the DVI and the sum of the NIR and red bands (ie the normalization of the DVI)
 ndvi1992 = dvi1992 / (m1992[[1]] + m1992[[2]])
 plot(ndvi1992, col = cl)
 
-### Calculating and plotting ndvi for the new image ###
+### Calculating and plotting the NDVI for the new image ###
 
 ndvi2006 = dvi2006 / (m2006[[1]] + m2006[[2]])
 plot(ndvi2006, col = cl)
