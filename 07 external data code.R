@@ -1,50 +1,39 @@
-# time series analysis
+# External data
 
-library(imageRy)
 library(terra)
 
-im.list()
+# set the working directory based on your path:
+# setwd("youtpath")
+# W***** users: C:\\path\Downloads -> C://path/Downloads
+# My own:
+setwd("~/Downloads")
+naja <- rast("najafiraq_etm_2003140_lrg.jpg")  # like in im.import()
 
-# import the data
-EN01 <- im.import("EN_01.png")
-EN13 <- im.import("EN_13.png")
+plotRGB(naja, r=1, g=2, b=3) # im-plotRGB
+
+# Exercise: Download the second image from the same site and import it in R
+najaaug <- rast("najafiraq_oli_2023219_lrg.jpg")
+plotRGB(najaaug, r=1, g=2, b=3)
 
 par(mfrow=c(2,1))
-im.plotRGB.auto(EN01)
-im.plotRGB.auto(EN13)
+plotRGB(naja, r=1, g=2, b=3) # im-plotRGB
+plotRGB(najaaug, r=1, g=2, b=3)
 
-# using the first element (band) of images
-dif = EN01[[1]] - EN13[[1]]
+# multitemporal change detection
+najadif = naja[[1]] - najaaug[[1]] 
+cl <- colorRampPalette(c("brown", "grey", "orange")) (100)
+plot(najadif, col=cl)
 
-# palette
-cldif <- colorRampPalette(c("blue", "white", "red")) (100)
-plot(dif, col=cldif)
+# Download your own preferred image:
+typhoon <- rast("mawar_vir2_2023144_lrg.jpg")
+
+plotRGB(typhoon, r=1, g=2, b=3)
+plotRGB(typhoon, r=2, g=1, b=3)
+plotRGB(typhoon, r=3, g=2, b=1)
 
 
-### New example: temperature in Greenland
+# The Mato Grosso image can be downloaded directly from EO-NASA:
 
-g2000 <- im.import("greenland.2000.tif")
-clg <- colorRampPalette(c("black", "blue", "white", "red")) (100)
-plot(g2000, col=clg)
-
-g2005 <- im.import("greenland.2005.tif")
-g2010 <- im.import("greenland.2010.tif")
-g2015 <- im.import("greenland.2015.tif")
-
-plot(g2015, col=clg)
-
-par(mfrow=c(1,2))
-plot(g2000, col=clg)
-plot(g2015, col=clg)
-
-# stacking the data
-stackg <- c(g2000, g2005, g2010, g2015)
-plot(stackg, col=clg)
-
-# Exercise: make the differencxe between the first and the final elemnts of the stack
-difg <- stackg[[1]] - stackg[[4]]
-# difg <- g2000 - g2015
-plot(difg, col=cldif)
-
-# Exercise: make a RGB plot using different years
-im.plotRGB(stackg, r=1, g=2, b=3)
+mato <- rast("matogrosso_l5_1992219_lrg.jpg")
+plotRGB(mato, r=1, g=2, b=3) 
+plotRGB(mato, r=2, g=1, b=3) 
