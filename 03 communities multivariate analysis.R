@@ -1,3 +1,5 @@
+# We will use a library for community ecology called vegan. Link to its documentation: https://cran.r-project.org/web/packages/vegan/
+
 library(vegan)
 
 data(dune)
