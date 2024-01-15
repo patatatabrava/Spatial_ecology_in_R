@@ -7,6 +7,7 @@ head(dune) # returns the first part of the dataset
 
 ord <- decorana(dune) # description: "Performs detrended correspondence analysis and basic reciprocal averaging or orthogonal correspondence analysis." I don't understand what it does
 
+#### What do those variables represent? Why do we use "=" and not "<-"? ######################
 ldc1 =  3.7004 
 ldc2 =  3.1166 
 ldc3 = 1.30055
