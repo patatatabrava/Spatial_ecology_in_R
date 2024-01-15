@@ -1,38 +1,42 @@
-# vegetation indices
+# We will work with vegetation indices
 
 library(imageRy)
 library(terra)
 
-im.list()
+im.list() # we want to know the name of the image we need to import, so we have a look at the list of all the data in imageRy
+
+### Importing and plotting the old image of the Mato grosso ###
 
 m1992 <- im.import("matogrosso_l5_1992219_lrg.jpg")   
-# bands: 1=NIR, 2=RED, 3=GREEN
-im.plotRGB(m1992, r=1, g=2, b=3)
-im.plotRGB(m1992, 1, 2, 3)
-im.plotRGB(m1992, r=2, g=1, b=3)
-im.plotRGB(m1992, r=2, g=3, b=1)
+# The bands are in the following order: 1 = NIR, 2 = red, 3 = green
+im.plotRGB(m1992, r = 1, g = 2, b = 3)
+im.plotRGB(m1992, 1, 2, 3) # different syntax for doing the same thing as in the previous line
+im.plotRGB(m1992, r = 2, g = 1, b = 3) 
+im.plotRGB(m1992, r = 2, g = 3, b = 1) # in this plot, the red is on the red, the green is on the green, and the NIR is on the blue. There is no blue in our file, so we can't make a normal RGB plot
 
-# import the recent image
+### Importing and plotting the recent image of the Mato grosso ###
+
 m2006 <- im.import("matogrosso_ast_2006209_lrg.jpg")
-im.plotRGB(m2006, r=2, g=3, b=1)
+im.plotRGB(m2006, r = 2, g = 3, b = 1)
 
-# build a multiframe with 1992 and 2006 images
+### Building a multiframe with the 1992 and 2006 images ###
+
 par(mfrow=c(1,2))
-im.plotRGB(m1992, r=2, g=3, b=1)
-im.plotRGB(m2006, r=2, g=3, b=1)
+im.plotRGB(m1992, r = 2, g = 3, b = 1)
+im.plotRGB(m2006, r = 2, g = 3, b = 1)
 
-# DVI = NIR - RED
-# bands: 1=NIR, 2=RED, 3=GREEN
+### DVI = NIR - RED
+# Recall that the bands are in the following order: 1 = NIR, 2 = red, 3 = green
 
 dvi1992 = m1992[[1]] - m1992[[2]]
 plot(dvi1992)
 
 cl <- colorRampPalette(c("darkblue", "yellow", "red", "black")) (100)
-plot(dvi1992, col=cl)
+plot(dvi1992, col = cl)
 
 # exercise: calculate dvi of 2006
 dvi2006 = m2006[[1]] - m2006[[2]]
-plot(dvi2006, col=cl)
+plot(dvi2006, col = cl)
 
 # NDVI
 ndvi1992 = (m1992[[1]] - m1992[[2]]) / (m1992[[1]] + m1992[[2]])
