@@ -1,6 +1,7 @@
 # We will learn how to visualize remote sensing (satellite) data using the imageRy library
-# It isn't on CRAN, but, instead, it can be found at: https://github.com/ducciorocchini/imageRy/blob/main/DESCRIPTION
-# The description of the datasets is at: https://github.com/ducciorocchini/imageRy/blob/main/data_description.md
+# It isn't on CRAN, but, instead, it can be found at: https://github.com/ducciorocchini/imageRy/tree/main
+# Here is a short documentation on the functions: https://htmlpreview.github.io/?https://github.com/ducciorocchini/imageRy/blob/main/imageRy_rapid_manual.html
+# The description of the datasets, on the other hand, is at: https://github.com/ducciorocchini/imageRy/blob/main/data_description.md
 
 library(devtools) # this library allows us to install other libraries from GitHub
 install_github("ducciorocchini/imageRy")  # this function, which is from devtools, installs the imageRy package from GitHub
