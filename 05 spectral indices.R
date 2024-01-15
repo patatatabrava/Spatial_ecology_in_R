@@ -21,42 +21,44 @@ im.plotRGB(m2006, r = 2, g = 3, b = 1)
 
 ### Building a multiframe with the 1992 and 2006 images ###
 
-par(mfrow=c(1,2))
+par(mfrow = c(1,2))
 im.plotRGB(m1992, r = 2, g = 3, b = 1)
 im.plotRGB(m2006, r = 2, g = 3, b = 1)
 
-### DVI = NIR - RED
+### Taking the difference between the NIR and red bands in the old image and plotting it ###
+
 # Recall that the bands are in the following order: 1 = NIR, 2 = red, 3 = green
 
-dvi1992 = m1992[[1]] - m1992[[2]]
+dvi1992 = m1992[[1]] - m1992[[2]] # here, we use "=" and not "<-" because we are making an operation
 plot(dvi1992)
 
 cl <- colorRampPalette(c("darkblue", "yellow", "red", "black")) (100)
 plot(dvi1992, col = cl)
 
-# exercise: calculate dvi of 2006
+### Exercise: calculate the dvi (ie the difference between the NIR and red bands) of 2006 ###
+
 dvi2006 = m2006[[1]] - m2006[[2]]
 plot(dvi2006, col = cl)
 
 # NDVI
 ndvi1992 = (m1992[[1]] - m1992[[2]]) / (m1992[[1]] + m1992[[2]])
 ndvi1992 = dvi1992 / (m1992[[1]] + m1992[[2]])
-plot(ndvi1992, col=cl)
+plot(ndvi1992, col = cl)
 
 # NDVI
 ndvi2006 = dvi2006 / (m2006[[1]] + m2006[[2]])
-plot(ndvi2006, col=cl)
+plot(ndvi2006, col = cl)
 
 # par
-par(mfrow=c(1,2))
-plot(ndvi1992, col=cl)
-plot(ndvi2006, col=cl)
+par(mfrow = c(1,2))
+plot(ndvi1992, col = cl)
+plot(ndvi2006, col = cl)
 
 clvir <- colorRampPalette(c("violet", "dark blue", "blue", "green", "yellow"))(100) # specifying a color scheme
-par(mfrow=c(1,2))
+par(mfrow = c(1,2))
 plot(ndvi1992, col=clvir)
 plot(ndvi2006, col=clvir)
 
-# speediing up calculation
+# speeding up calculation
 ndvi2006a <- im.ndvi(m2006, 1, 2)
-plot(ndvi2006a, col=cl)
+plot(ndvi2006a, col = cl)
