@@ -1,0 +1,66 @@
+\documentclass[12pt]{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath} % Required for using the "equation*", "align*" and "cases" environments
+\usepackage{hyperref} % This creates links within the document for every reference (they only work once you download the pdf, though)
+\usepackage{natbib}
+
+\title{This\_is\_not\_a\_title}
+\author{Cloé Rouch}
+\date{\today}
+% Not writing anything here is the same as writing "\date{\today}". If I wanted to remove the date, I'd need to write "\date{}".
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents % Pretty self-explanatory
+
+\begin{abstract}
+    Lorem ipsum
+
+    {\tiny Lorem} {\scriptsize ipsum} {\large dolor} {\Large sit} {\huge amet.}
+    
+    \bigskip \noindent Blip bloup
+
+    \smallskip Bloup blip
+    % When you use "\bigskip" or "\smallskip", you still need the skip with the enter key.
+\end{abstract}
+
+\section{Introduction}\label{Intro}
+
+\section{Methods}
+
+%\begin{equation*}
+%    F = G\frac{m_1m_2}{d^2}
+%\end{equation*}
+% The n-th root is "\sqrt[n]{}".
+\begin{equation}\label{Lotka-Volterra}
+    \begin{cases}
+        \frac{dx}{dt} = (A - By)x,
+        \\
+        \frac{dy}{dt} = (Cx - D)y.
+    \end{cases}
+\end{equation}
+
+As we have seen in equation \ref{Lotka-Volterra}, blablabla. This is linked to what we saw in section \ref{Intro}.
+
+\begin{figure}
+    \centering % The image is centered, but there's more white on the right than on the left
+    \includegraphics[width = \textwidth]{Lotka-Volterra.svg.png}
+    \caption{Phase plane and trajectories of the Lotka-Volterra system}
+    \label{fig:Lotka-Volterra}
+\end{figure}
+
+\section{Results}
+
+\section{Discussion}
+
+Bloup blip \cite{Arcozzi}.
+
+\begin{thebibliography}{999}
+    \bibitem[Nicola Arcozzi \& Richard Rochberg \& Eric T Sawyer, 2002]{Arcozzi}
+    Carleson measures for analytic Besov spaces
+    N Arcozzi, R Rochberg, ET Sawyer - Revista matemática iberoamericana, 2002
+\end{thebibliography}
+
+\end{document}
