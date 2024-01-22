@@ -4,7 +4,7 @@ library(terra)
 
 # How to set the working directory based on your path:
 # setwd("yourtpath")
-# W***** users: C:\\path\Downloads -> C://path/Downloads
+# Window users: C:\\path\Downloads -> C://path/Downloads
 # The professor's:
 setwd("~/Downloads")
 naja <- rast("najafiraq_etm_2003140_lrg.jpg")  # like in im.import()
