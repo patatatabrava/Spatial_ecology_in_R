@@ -3,7 +3,7 @@
 library(terra)
 
 # How to set the working directory based on your path:
-# setwd("yourtpath")
+# setwd("yourpath")
 # Window users: C:\\path\Downloads -> C://path/Downloads
 # The professor's:
 setwd("~/Downloads")
