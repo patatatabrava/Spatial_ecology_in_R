@@ -7,6 +7,8 @@ library(terra)
 # Window users: C:\\path\Downloads -> C://path/Downloads
 # The professor's:
 setwd("~/Downloads")
+# To find the path to a given directory, open the directory, right click, and choose properties. Add the name of the directory to the path you get, and you're done!
+
 naja <- rast("najafiraq_etm_2003140_lrg.jpg")  # like in im.import()
 
 plotRGB(naja, r = 1, g = 2, b = 3) # im-plotRGB
