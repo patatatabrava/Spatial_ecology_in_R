@@ -7,7 +7,7 @@ library(sdm)
 library(terra)
 
 file <- system.file("external/species.shp", package = "sdm") # the system.file() function takes two arguments: the pathway inside the package directory to the file we want to use, and the package we're using. It returns the whole path to the desired file in the computer
-rana <- vect(file) # the vect() function maked the file into a usable object
+rana <- vect(file) # the vect() function makes the file into a usable object
 plot(rana)
 
 ### Selecting presences ###
