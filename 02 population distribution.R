@@ -17,7 +17,7 @@ plot(pres)
 
 ### Exercise: select absences and call them abse ###
 
-abse <- rana[rana$Occurrence==0,]
+abse <- rana[rana$Occurrence == 0,]
 plot(abse)
 
 ### Exercise: plot presences and absences, one beside the other ###
