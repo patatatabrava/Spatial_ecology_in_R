@@ -107,8 +107,8 @@ base_map # shows the map
 setwd("C://Users/acer/Desktop/Occurrences Northern Spotted Owl") # sets the working directory to the one containing the data
 occ <- read_tsv("occurrences.csv", quote = "") # reads the file from the directory and stores it in a data frame called occ
 occ # shows a table with the data
-occ_nw <- occ[occ$stateProvince == "Washington" | occ$stateProvince == "Oregon" | occ$stateProvince == "California" | occ$stateProvince == "Nevada",] # selects the observations in the states we're studying, the "|" symbol is a logical "or"
-occ_nw_notNA <- occ_nw[is.na(occ_nw$year) == FALSE,] # selects the data for which the year attribute is not unknown, "na" stands for "not available"
+occ_nw <- occ[occ$stateProvince == "Washington" | occ$stateProvince == "Oregon" | occ$stateProvince == "California" | occ$stateProvince == "Nevada",] # selects the observations in the states we're studying; the "|" symbol is a logical "or"
+occ_nw_notNA <- occ_nw[is.na(occ_nw$year) == FALSE,] # selects the data for which the year attribute is not unknown; "na" stands for "not available"
 
 ### Adding the data to the base map ###
 
