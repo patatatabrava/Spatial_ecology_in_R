@@ -101,8 +101,8 @@ base_map # shows the map
 
 ### Getting the occurrences of northern spotted owls and cleaning up the data ###
 
-# The data was downloaded from this page (I chose the simple version): https://www.gbif.org/occurrence/download/0075084-231120084113126.
-# DOI: 10.15468/dl.5yzj6b
+# The data was downloaded from this page (I chose the simple version): https://www.gbif.org/occurrence/download/0077685-231120084113126.
+# DOI: 10.15468/dl.rx8u8v
 
 setwd("C://Users/acer/Desktop/Occurrences Northern Spotted Owl") # sets the working directory to the one containing the data
 occ <- read_tsv("occurrences.csv", quote = "") # reads the file from the directory and stores it in a data frame called occ
