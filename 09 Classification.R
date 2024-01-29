@@ -11,7 +11,7 @@ im.list()
 # additional images: https://webbtelescope.org/contents/media/videos/1102-Video?Tag=Nebulas&page=1
 
 sun <- im.import("Solar_Orbiter_s_first_views_of_the_Sun_pillars.jpg")
-sunc <- im.classify(sun, num_clusters = 3)
+sunc <- im.classify(sun, num_clusters = 3) # sorts the pixels in the image into 3 categories which are automatically determined
 plot(sunc)
 
 # If I get 3 images, it just means that I have an old version of imageRy
@@ -37,7 +37,7 @@ par(mfrow = c(1,2))
 plot(m1992c[[1]])
 plot(m2006c[[1]])
 
-# Now, we want to understand which proportions each classes have in the image
+# Now, we want to understand which proportions each class has in the image
 
 f1992 <- freq(m1992c)
 f1992
