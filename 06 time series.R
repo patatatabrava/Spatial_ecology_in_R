@@ -44,7 +44,7 @@ plot(g2015, col = clg)
 stackg <- c(g2000, g2005, g2010, g2015)
 plot(stackg, col = clg)
 
-### Exercise: make the difference between the first and the final elemnts of the stack ###
+### Exercise: make the difference between the first and the final elements of the stack ###
 
 difg <- stackg[[1]] - stackg[[4]]
 # difg <- g2000 - g2015
