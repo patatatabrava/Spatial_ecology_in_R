@@ -8,12 +8,12 @@ data(kerinci)
 summary(kerinci) # summary() gives a summary of the object it takes as first argument, here the dataset kerinci
 
 kerinci$timeRad <- kerinci$Time*2*pi # selects the time variable, puts it in radians and stores it in a new variable added to the data frame kerinci, called timeRad
-# But why would you express a time in radians?
+# This is done because we are doing circular statistics
 
 tiger <- kerinci[kerinci$Sps == "tiger",] # selects the elements in kerinci for which the Sps (species) variable is tiger
 
 timetig <- tiger$timeRad # selects the time variable in the tiger data and stores it in a variable called timetig
-densityPlot(timetig, rug = TRUE) # what does "rug = TRUE" mean?
+densityPlot(timetig, rug = TRUE) # setting the rug parameter to TRUE allows us to make a rug plot
 
 ### Exercise: select only the data on macaque individuals and plot it ###
 
@@ -22,4 +22,6 @@ head(macaque)
 timemac <- macaque$timeRad
 densityPlot(timemac, rug = TRUE)
 
-overlapPlot(timetig, timemac) # shows the overlap between the tiger and macaque activity
+### Showing the overlap between the tiger and macaque activity ###
+
+overlapPlot(timetig, timemac)
