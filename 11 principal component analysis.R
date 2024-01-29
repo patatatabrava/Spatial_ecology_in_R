@@ -20,13 +20,7 @@ plot(pc1, col = viridisc)
 
 ### Calculating standard deviation on top of pc1 ###
 
-pc1sd3 <- focal(pc1, matrix(1/9, 3, 3), fun = sd) # the focal() function takes an image (a raster) as first argument, 
-# a matrix of weights (the moving window) as second argument and a function as an optional third argument. 
-# Here, the function calculates the standard deviation, which is what "sd" stands for.
-# The first value in the matrix function's parameters is the weight of each point of the moving window.
-# The next two are the number of columns and rows respectively.
-# Description of the focal() function: 
-# "calculate focal ("moving window") values for the neighborhood of focal cells using a matrix of weights, perhaps in combination with a function"
+pc1sd3 <- focal(pc1, matrix(1/9, 3, 3), fun = sd) 
 plot(pc1sd3, col = viridisc)
 
 pc1sd7 <- focal(pc1, matrix(1/49, 7, 7), fun = sd)
