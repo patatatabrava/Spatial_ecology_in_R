@@ -15,6 +15,8 @@ im.plotRGB(m1992, 1, 2, 3) # different syntax for doing the same thing as in the
 im.plotRGB(m1992, r = 2, g = 1, b = 3) 
 im.plotRGB(m1992, r = 2, g = 3, b = 1) # in this plot, the red is on the red, the green is on the green, and the NIR is on the blue. There is no blue in our file, so we can't make a normal RGB plot
 
+# Interpretation: the NIR and the green are more abondant than the red, so the vegetation is healthy
+
 ### Importing and plotting the recent image of the Mato Grosso ###
 
 m2006 <- im.import("matogrosso_ast_2006209_lrg.jpg")
