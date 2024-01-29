@@ -7,7 +7,7 @@ library(terra)
 
 setwd("~/Downloads") # in Windows '\' means '/'
 
-soilm2023 <- rast("c_gls_SSM1km_202311250000_CEURO_S1CSAR_V1.2.1.nc")
+soilm2023 <- rast("c_gls_SSM1km_202311250000_CEURO_S1CSAR_V1.2.1.nc") # the data concerns soil moisture in November 2023
 plot(soilm2023)
 
 # there are two elements, let's use the first one!
