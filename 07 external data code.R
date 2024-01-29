@@ -36,7 +36,6 @@ plotRGB(typhoon, r = 1, g = 2, b = 3)
 plotRGB(typhoon, r = 2, g = 1, b = 3)
 plotRGB(typhoon, r = 3, g = 2, b = 1)
 
-
 # The Mato Grosso image can be downloaded directly from EO-NASA:
 mato <- rast("matogrosso_l5_1992219_lrg.jpg")
 plotRGB(mato, r = 1, g = 2, b = 3) 
