@@ -12,7 +12,7 @@ plot(rana)
 
 ### Selecting presences ###
 
-pres <- rana[rana$Occurrence == 1,] # "rana[rana$Occurrence == 1,]" selects the points within rana for which the Occurence attribute equals 1. The coma signals the end of the query and is optional
+pres <- rana[rana$Occurrence == 1,] # "rana[rana$Occurrence == 1,]" selects the points within rana for which the Occurence variable equals 1. The coma signals the end of the query and is optional
 plot(pres)
 
 ### Exercise: select absences and call them abse ###
