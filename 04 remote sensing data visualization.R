@@ -9,7 +9,10 @@ install_github("ducciorocchini/imageRy")  # this function, which is from devtool
 library(imageRy)
 library(terra)
 
-im.list() # lists all the datasets in imageRy
+im.list() # lists all the image files in imageRy
+
+# Satellite data is organized in bands, which each correspond to a different part of the electromagnetic spectrum.
+# The combination of these bands allows for the analysis of diverse surface features, including vegetation health, water bodies, urban areas
 
 b2 <- im.import("sentinel.dolomites.b2.tif") # imports an image from the package and stores it in a variable called b2. This is the second band (ie. the blue band) of a picture of the Dolomites taken by the Sentinel-2 satellites
 
@@ -41,7 +44,7 @@ plot(b8, col = cl)
 
 ### Stacking the images ###
 
-# "Stacking" means putting all the images in a single object, like in the following line
+# "Stacking" means putting all the images in a single object, like in the following line:
 stacksent <- c(b2, b3, b4, b8)
 dev.off() # we close all the previous plots to get rid of the multiframe
 plot(stacksent, col = cl)
