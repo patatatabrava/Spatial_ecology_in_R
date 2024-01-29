@@ -73,7 +73,6 @@ base_map <-
 
 base_map # shows the map
 
-
 # Method 2: making a data frame with the county info of all the states together and plotting it #
 
 # We want to keep the groups of counties separate between each state, otherwise, we will
