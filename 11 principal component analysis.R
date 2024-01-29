@@ -13,14 +13,20 @@ pairs(sent) # shows the correlations between each of the datasets
 ### Performing PCA on sent ###
 
 sentpc <- im.pca2(sent) # the 2 is because they made an update to the package, and it might not work without it
-pc1 <- sentpc$PC1
+pc1 <- sentpc$PC1 # selects the first principal component in sentpc and stores it in a variable
 
 viridisc <- colorRampPalette(viridis(7))(255)
 plot(pc1, col = viridisc)
 
 ### Calculating standard deviation on top of pc1 ###
 
-pc1sd3 <- focal(pc1, matrix(1/9, 3, 3), fun = sd) # "sd" stands for "standard deviation"
+pc1sd3 <- focal(pc1, matrix(1/9, 3, 3), fun = sd) # the focal() function takes an image (a raster) as first argument, 
+# a matrix of weights (the moving window) as second argument and a function as an optional third argument. 
+# Here, the function calculates the standard deviation, which is what "sd" stands for.
+# The first value in the matrix function's parameters is the weight of each point of the moving window.
+# The next two are the number of columns and rows respectively.
+# Description of the focal() function: 
+# "calculate focal ("moving window") values for the neighborhood of focal cells using a matrix of weights, perhaps in combination with a function"
 plot(pc1sd3, col = viridisc)
 
 pc1sd7 <- focal(pc1, matrix(1/49, 7, 7), fun = sd)
