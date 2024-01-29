@@ -54,7 +54,6 @@ p1992
 
 # forest: 83%; humans: 17%
 
-
 ### Calculating the percentage of forest in 2006 ###
 
 f2006 <- freq(m2006c)
