@@ -37,7 +37,7 @@ par(mfrow = c(1,2))
 plot(m1992c[[1]])
 plot(m2006c[[1]])
 
-# Now, we want to understand which proportions each classes have in the image.
+# Now, we want to understand which proportions each classes have in the image
 
 f1992 <- freq(m1992c)
 f1992
