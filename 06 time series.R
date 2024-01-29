@@ -23,7 +23,6 @@ dif = EN01[[1]] - EN13[[1]]
 cldif <- colorRampPalette(c("blue", "white", "red")) (100) # this is not a good palette for colorblind people
 plot(dif, col = cldif)
 
-
 ### New example: temperature in Greenland ###
 
 g2000 <- im.import("greenland.2000.tif")
