@@ -14,6 +14,7 @@ library(gganimate) # serves for making animations
 library(gifski) # turns animations into gifs
 library(maps) # contains info on the boundaries of many geographical regions
 library(readr) # serves for reading rectangular data, here .csv files
+library(terra) # contains methods for spatial data analysis with vector and raster data
 
 ### Generating a base map of the states in which the spotted owl lives ###
 
@@ -72,7 +73,6 @@ base_map <-
 # The function theme_void() gives an empty background to the map.
 
 base_map # shows the map
-
 
 # Method 2: making a data frame with the county info of all the states together and plotting it #
 
@@ -163,3 +163,49 @@ animate(map_with_shadow, nframes = num_years, fps = 2)
 
 anim_save("with shadow.gif")
 # These three last lines are identical to the ones used in the previous chunk of code.
+
+### Making rasters with the Landsat 8 images ###
+
+# NIR is band 5, red is band 4
+# The images are of a patch of forest at the border between Oregon and California
+
+band4_2022 <- rast("Landsat8_2022_B4.tif")
+band4_2021 <- rast("Landsat8_2021_B4.tif")
+band4_2019 <- rast("Landsat8_2019_B4.tif")
+band4_2018 <- rast("Landsat8_2018_B4.tif")
+band5_2022 <- rast("Landsat8_2022_B5.tif")
+band5_2021 <- rast("Landsat8_2021_B5.tif")
+band5_2019 <- rast("Landsat8_2019_B5.tif")
+band5_2018 <- rast("Landsat8_2018_B5.tif")
+# The rast() function creates a raster from the image which is fed to it.
+
+### Calculating the DVI for each year ###
+
+dvi_2022 <- band5_2022 - band4_2022
+dvi_2021 <- band5_2021 - band4_2021
+dvi_2019 <- band5_2019 - band4_2019
+dvi_2018 <- band5_2018 - band4_2018
+
+### Calculating the NDVI for each year ###
+
+# The NDVI is better suited for comparing different images than the DVI because it is normalized.
+# Thus, the interpretation doesn't get biased by the potential differences in total reflectance.
+
+ndvi_2022 <- dvi_2022/(band5_2022 + band4_2022)
+ndvi_2021 <- dvi_2021/(band5_2021 + band4_2021)
+ndvi_2019 <- dvi_2019/(band5_2019 + band4_2019)
+ndvi_2018 <- dvi_2018/(band5_2018 + band4_2018)
+
+# A low NDVI can indicate that the trees are conifers, while a high NDVI suggests hardwood trees.
+
+### Plotting the NDVI for each year in a multiframe ###
+
+cl <- colorRampPalette(c("black","darkgreen","grey","white"))(100)
+# The colorRampPalette() funtion creates a color palette from the array which is fed to it.
+# The number in parentheses sets the number of intermediate colors between each of the colors in the array. 
+
+par(mfrow = c(2,2)) # creates a 2x2 multiframe 
+plot(ndvi_2022, main = "NDVI in 2022", col = cl) # the "main" parameter contains the title of the plot
+plot(ndvi_2021, main = "NDVI in 2021", col = cl)
+plot(ndvi_2019, main = "NDVI in 2019", col = cl)
+plot(ndvi_2018, main = "NDVI in 2018", col = cl)
