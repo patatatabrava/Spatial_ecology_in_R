@@ -1,0 +1,132 @@
+\documentclass{beamer}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{hyperref}
+\usepackage{animate}
+
+\usetheme{Frankfurt}
+\usecolortheme{seahorse}
+
+\title{Spotting the spotted owl}
+\author{Cloé Rouch}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+
+\begin{frame}{The spotted owl}
+    \begin{columns}
+        \column{.3\textwidth}
+            \includegraphics[width =\textwidth]{Northern_Spotted_Owl.USFWS.jpg} 
+        \column{.5\textwidth}
+            \begin{itemize}
+                \item Habitat: old-growth conifer forest
+                \item What happened to its habitat?
+                    \begin{itemize}
+                        \item until the '90s, the old forest was cut by logging companies
+                    \end{itemize}
+                $\implies$ Threatened status 
+            \end{itemize}
+            \begin{itemize}
+                \item Biggest risk now: competition with barred owls
+                \item How to monitor its population?
+                    \begin{itemize}
+                        \item direct observation
+                        \item mapping out potential habitat
+                    \end{itemize}
+            \end{itemize}
+        \column{.3\textwidth}
+            \includegraphics[width =\textwidth]{Strix-varia-005.jpg} 
+    \end{columns}    
+\end{frame}
+
+\begin{frame}{Aim of this project}
+        Mapping out direct observations of spotted owls in Washington, Oregon and California
+\end{frame}
+
+\section{Visualizing direct observations}
+
+\subsection{Data}
+
+\begin{frame}{Downloading and loading the data}
+    \begin{itemize}
+        \item Source of the data: Global Biodiversity Information Facility (GBIF)
+        \item Downloaded using the website's interface:
+            \begin{itemize}
+                \item searched for \textit{Strix occidentalis caurina}
+                \item selected the iNaturalist research-grade observations (they have coordinates)
+                \item downloaded the simple version of the data
+            \end{itemize}
+        \item DOI of the dataset: 10.15468/dl.rx8u8v
+    \end{itemize}
+    \includegraphics[width = \textwidth]{Code/Loading the data.png}
+\end{frame}
+
+\begin{frame}{Cleaning up the data}
+    \includegraphics[width = \textwidth]{Code/Cleaning up the data.png}
+\end{frame}
+
+\subsection{Base map}
+
+\begin{frame}{Getting and treating the data on the states to map out}
+    \includegraphics[width = \textwidth]{Code/States data.png}
+\end{frame}
+
+\begin{frame}{Generating the base map}
+    \begin{columns}
+        \column{.8\textwidth}
+            \includegraphics[width = \textwidth]{Code/Base map.png}
+        \column{.3\textwidth}
+            \includegraphics[width = \textwidth]{The map itself.png}
+    \end{columns}    
+\end{frame}
+
+\begin{frame}{Adding the data to the base map}
+    \includegraphics[width = \textwidth]{Code/Map and data.png}
+    \begin{columns}
+        \column{.2\textwidth}
+        \column{.5\textwidth}
+            This map shows observations from all years of the dataset:
+        \column{.5\textwidth}
+            \includegraphics[width = .5\textwidth]{Map with all years.png}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Animating the map}
+    \begin{columns}
+        \column{.6\textwidth}
+            \includegraphics[width = \textwidth]{Code/Anim without shadow.png}
+        \column{.5\textwidth}
+           \animategraphics[loop, autoplay, width = \textwidth]{2}{without_shadow/without_shadow-}{0}{30}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Keeping the shadow of previous points}
+    \begin{columns}
+        \column{.6\textwidth}
+            \includegraphics[width = \textwidth]{Code/Anim with shadow.png}
+        \column{.5\textwidth}
+            \animategraphics[loop, autoplay, width = \textwidth]{2}{with_shadow/with_shadow-}{0}{30}
+    \end{columns}
+\end{frame}
+
+\section{References}
+
+\begin{frame}{}
+
+    \centering {\Large Thank you for your attention!}
+
+    \bigskip
+    
+    \raggedright References:
+    \begin{itemize}
+    \item \href{https://earthobservatory.nasa.gov/features/SpottedOwls/spotted_owls.php}{https://earthobservatory.nasa.gov/features/SpottedOwls/ spotted\_owls.php}
+    \item \href{https://earthobservatory.nasa.gov/images/145979/spotting-the-spotted-owl-30-years-of-habitat-change}{https://earthobservatory.nasa.gov/images/145979/spotting-the-spotted-owl-30-years-of-habitat-change}
+    \item \href{https://earthobservatory.nasa.gov/images/146038/spotting-the-spotted-owl-30-years-of-forest-disturbance}{https://earthobservatory.nasa.gov/images/146038/spotting-the-spotted-owl-30-years-of-forest-disturbance}
+    \item \href{https://conservancy.umn.edu/bitstream/handle/11299/220339/time-maps-tutorial-v2.html?sequence=3&isAllowed=y}{https://conservancy.umn.edu/bitstream/handle/11299/ 220339/time-maps-tutorial-v2.html?sequence=3\&isAllowed=y}
+\end{itemize}
+\end{frame}
+
+\end{document}
