@@ -42,10 +42,6 @@
     \end{columns}    
 \end{frame}
 
-\begin{frame}{Aim of this project}
-        Mapping out direct observations of spotted owls in Washington, Oregon and California
-\end{frame}
-
 \section{Visualizing direct observations}
 
 \subsection{Data}
@@ -110,6 +106,32 @@
         \column{.5\textwidth}
             \animategraphics[loop, autoplay, width = \textwidth]{2}{with_shadow/with_shadow-}{0}{30}
     \end{columns}
+\end{frame}
+
+\section{Monitoring habitat}
+
+\begin{frame}{Method and source of the data}
+    \begin{itemize}
+        \item The DVI can be used to determine the type of trees in a forest: low $\implies$ conifers, high $\implies$ hardwood trees
+        \item Source of the data: Earth Explorer website
+        \item Downloaded using the website's interface (see resource on Virtuale)
+        \item Data: 
+        \begin{itemize}
+            \item bands 4 (red) and 5 (NIR) of the Landsat 8 satellite
+            \item January of 4 years (2018, 2019, 2021, 2022)
+            \item patch of forest at the border between Oregon and California
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Calculating the NDVI for each year}
+    \includegraphics[width = \textwidth]{Code/Calculating the NDVI.png}
+\end{frame}
+
+\begin{frame}{Plotting the results}
+    \includegraphics[width = \textwidth]{Code/Plotting the results.png}
+    \centering
+    \includegraphics[width = .8\textwidth]{Multiframe NDVI.png}
 \end{frame}
 
 \section{References}
