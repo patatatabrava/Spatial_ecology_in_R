@@ -56,13 +56,13 @@ base_map <-
   coord_quickmap() +
   theme_void()
 
-# To have all states in one plot, we need to call the ggplot() function only once.
+# To have all states in one plot, we must make only one call to the ggplot() function.
 # With "data = county_info_wash", we feed it the data on the counties for one of the states: Washington.
 # The statement "mapping = aes(x = long, y = lat, group = group)" specifies the aesthetics of the plot: 
 # we want the longitude of the points on the x-axis, their latitude on the y-axis, and we want the points
-# which share the same value for the group variable in the data frame to be part of a same group in the plot
+# that have the same value in the group column in the data frame to be part of a same group in the plot
 # (in "group = group", the first "group" is a parameter of the ggplot() function, while the second one is 
-# the name of a variable in the data frame).
+# the name of a column in the data frame).
 # We end the line with a '+' to state that more layers will be added to the plot.
 # The statement "geom_polygon(color = "black", fill = "white")" adds a layer of polygons with black edges and
 # white fillings connecting points of a same group to the plot.
@@ -72,6 +72,7 @@ base_map <-
 # The function theme_void() gives an empty background to the map.
 
 base_map # shows the map
+
 
 # Method 2: making a data frame with the county info of all the states together and plotting it #
 
@@ -103,35 +104,62 @@ base_map # shows the map
 # The data was downloaded from this page (I chose the simple version): https://www.gbif.org/occurrence/download/0077685-231120084113126.
 # DOI: 10.15468/dl.rx8u8v
 
-setwd("C://Users/acer/Desktop/Occurrences Northern Spotted Owl") # sets the working directory to the one containing the data
+setwd("C://Users/acer/Desktop/Project Spatial Ecology in R") # sets the working directory to the one containing the data
 occ <- read_tsv("occurrences.csv", quote = "") # reads the file from the directory and stores it in a data frame called occ
-occ # shows a table with the data
-occ_nw <- occ[occ$stateProvince == "Washington" | occ$stateProvince == "Oregon" | occ$stateProvince == "California" | occ$stateProvince == "Nevada",] # selects the observations in the states we're studying; the "|" symbol is a logical "or"
-occ_nw_notNA <- occ_nw[is.na(occ_nw$year) == FALSE,] # selects the data for which the year variable is not unknown; "na" stands for "not available"
+
+head(occ) # shows a table with the start of the data
+occ_notNA <- occ[is.na(occ$year) == FALSE & is.na(occ$decimalLatitude) == FALSE & is.na(occ$decimalLongitude) == FALSE,] 
+# The last line selects the data for which a value is available in the year, decimalLatitude and decimalLongitude columns
+# of the occ data frame and stores it in a new data frame; "na" stands for "not available".
 
 ### Adding the data to the base map ###
 
+# Observations from all the years will be featured in a single image.
+
 map_with_data <- base_map +  
-  geom_point(data = occ_nw_notNA, aes(x = decimalLongitude, y = decimalLatitude, group = year), color = "orange")
-map_with_data
+  geom_point(data = occ_notNA, aes(x = decimalLongitude, y = decimalLatitude, group = year), color = "orange")
+# This line adds a layer to the previous plot, which is why the right-hand side starts with "base_map".
+# The added layer shows as points thanks to the geom_point() function. Its arguments play the same role
+# those of the geom_polygon() did when it was called to draw Oregon, California and Nevada for the base map.
+
+map_with_data # shows the map with the data
 
 ### Animating the map ###
 
 map_with_animation <- map_with_data +
   transition_time(year) +
   ggtitle('Year: {frame_time}', subtitle = 'Frame {frame} of {nframes}')
-num_years <- max(occ_nw_notNA$year) - min(occ_nw_notNA$year) + 1
-animate(map_with_animation, nframes = num_years, fps = 2)
+# We are adding more layers to the map_with_data object.The function transition_time() takes as an argument
+# the column of the data frame that we want to use to transition from one image in the animation to the next.
+# Here, we've selected "year".
+# The ggtitle() function gives a title to each of the frames. The first argument contains the title,
+# while the second contains a subtitle. The frame_time parameter is the time index of the frame currently 
+# being displayed, so, here it corresponds to the year of the observations. 
+# The frame parameter refers to the index in the sequence of frames of the current frame, and nframe is 
+# the total number of frames.
+
+num_years <- max(occ_notNA$year) - min(occ_notNA$year) + 1 # calculates the total number of years in the dataset and stores it in a variable
+animate(map_with_animation, nframes = num_years, fps = 2) # animates the map_with_animation object, specifying that the total number of
+# frames should be num_years and that we want to display two frames per second (fps)
+
 anim_save("without shadow.gif") # saves the animation to a .gif file in the working directory
 
-### Making an animation with shadow ###
+### Making an animation with the shadow of previous points ###
 
 map_with_shadow <- base_map +
-  geom_point(data = occ_nw_notNA, aes(x = decimalLongitude, y = decimalLatitude, group = year, color = year)) +
+  geom_point(data = occ_notNA, aes(x = decimalLongitude, y = decimalLatitude, group = year, color = year)) +
   transition_time(year) +
   ggtitle('Newest year: {frame_time}', subtitle = 'Frame {frame} of {nframes}') +
   shadow_mark() +
-  scale_color_gradient(low = "yellow", high = "red")
-num_years <- max(occ_nw_notNA$year) - min(occ_nw_notNA$year) + 1
+  scale_color_gradient(low = "orange", high = "darkblue") # this color gradient was chosen to resemble the inferno palette from the viridis package
+# This is very similar to the code used to create the map without shadow. However, we cannot simply add layers 
+# to the map_with_data object because we have to specify that a different color should be attributed to each year value 
+# in the data frame, which is the purpose of the "color = year" statement.
+# We also add a layer with the shadow_mark() function to keep the points of the previous frames on the current one,
+# and, with the last line, we specify that the color gradient should go from orange to blue.
+
+num_years <- max(occ_notNA$year) - min(occ_notNA$year) + 1
 animate(map_with_shadow, nframes = num_years, fps = 2)
+
 anim_save("with shadow.gif")
+# These three last lines are identical to the ones used in the previous chunk of code.
