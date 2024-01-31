@@ -28,8 +28,8 @@ nev <- "nevada"
 # Getting the information on the borders of the counties of each state #
 
 # Our aim is to make a precise map.
-# Here is a description of the county data for any given state:
-# "This data set describes the shape of each county in the state by specifying 
+# Here is a description of the county data:
+# "This data set describes the shape of the counties of each state by specifying 
 # the latitude and longitude of the corners of polygons that approximate the shapes. 
 # The group column indicates the county to which the corresponding set of polygon corners belongs. 
 # For example, for California, group 1 corresponds to Alameda county, group 2 is Alpine county, and so on. 
