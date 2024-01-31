@@ -40,6 +40,8 @@ county_info_wash <- map_data("county", region = wash)
 county_info_ore <- map_data("county", region = ore)
 county_info_cal <- map_data("county", region = cal)
 county_info_nev <- map_data("county", region = nev)
+# The map_data() function, from the maps package, is used to access the data and to turn it into a data frame 
+# which can be plotted with ggplot().
 
 # Building the base map with the ggplot function #
 
