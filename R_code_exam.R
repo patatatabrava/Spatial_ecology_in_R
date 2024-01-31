@@ -14,7 +14,6 @@ library(gganimate) # serves for making animations
 library(gifski) # turns animations into gifs
 library(maps) # contains info on the boundaries of many geographical regions
 library(readr) # serves for reading rectangular data, here .csv files
-library(terra) # contains methods for spatial data analysis with vector and raster data
 
 ### Generating a base map of the states in which the spotted owl lives ###
 
@@ -55,7 +54,7 @@ base_map <-
   geom_polygon(data = county_info_cal, mapping = aes(x = long, y = lat, group = group), color = "black", fill = "white") +
   # Nevada
   geom_polygon(data = county_info_nev, mapping = aes(x = long, y = lat, group = group), color = "black", fill = "white") +
-
+  
   coord_quickmap() +
   theme_void()
 
@@ -167,6 +166,10 @@ anim_save("with shadow.gif")
 # These three last lines are identical to the ones used in the previous chunk of code.
 
 ### Making rasters with the Landsat 8 images ###
+
+library(terra) # contains methods for spatial data analysis with vector and raster data
+# This package was loaded separately because it contains an "animate()" function which 
+# clashes with the one from the gganimate library.
 
 # The near-infrared data (NIR) is stored in band 5, red is in band 4.
 # The images are of a patch of forest at the border between Oregon and California where we know from the previous observations  
