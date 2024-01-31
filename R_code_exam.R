@@ -168,8 +168,9 @@ anim_save("with shadow.gif")
 
 ### Making rasters with the Landsat 8 images ###
 
-# NIR is band 5, red is band 4
-# The images are of a patch of forest at the border between Oregon and California
+# The near-infrared data (NIR) is stored in band 5, red is in band 4.
+# The images are of a patch of forest at the border between Oregon and California where we know from the previous observations  
+# that spotted owls can be found.
 
 band4_2022 <- rast("Landsat8_2022_B4.tif")
 band4_2021 <- rast("Landsat8_2021_B4.tif")
@@ -207,7 +208,9 @@ cl <- colorRampPalette(c("black","darkgreen","grey","white"))(100)
 # The number in parentheses sets the number of intermediate colors between each of the colors in the array. 
 
 par(mfrow = c(2,2)) # creates a 2x2 multiframe 
-plot(ndvi_2022, main = "NDVI in 2022", col = cl) # the "main" parameter contains the title of the plot
+plot(ndvi_2022, main = "NDVI in 2022", col = cl) 
 plot(ndvi_2021, main = "NDVI in 2021", col = cl)
 plot(ndvi_2019, main = "NDVI in 2019", col = cl)
 plot(ndvi_2018, main = "NDVI in 2018", col = cl)
+# The plot() function is a base function in R (it doesn't belong to any additional package) that plots the data it receives as its first argument.
+# A title can be added by specifying the "main" parameter, and a color scheme can be chosen thanks to "col".
