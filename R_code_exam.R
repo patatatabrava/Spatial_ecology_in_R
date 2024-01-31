@@ -68,7 +68,7 @@ base_map <-
 # the name of a column in the data frame).
 # We end the line with a '+' to state that more layers will be added to the plot.
 # The statement "geom_polygon(color = "black", fill = "white")" adds a layer of polygons with black edges and
-# white fillings connecting points of a same group to the plot.
+# white fillings connecting points of a same group in the plot.
 # For the next states, we specify the datasets and the aesthetics directly in the geom_polygon() function to 
 # avoid making another call to the ggplot() function.
 # The function coord_quickmap() scales the axes in a way that looks natural for a map.
