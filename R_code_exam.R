@@ -136,7 +136,7 @@ map_with_animation <- map_with_data +
 # Here, we've selected "year".
 # The ggtitle() function gives a title to each of the frames. The first argument contains the title,
 # while the second contains a subtitle. The frame_time parameter is the time index of the frame currently 
-# being displayed, so, here it corresponds to the year of the observations. 
+# being displayed, so, here, it corresponds to the year of the observations. 
 # The frame parameter refers to the index in the sequence of frames of the current frame, and nframe is 
 # the total number of frames.
 
