@@ -212,5 +212,5 @@ plot(ndvi_2022, main = "NDVI in 2022", col = cl)
 plot(ndvi_2021, main = "NDVI in 2021", col = cl)
 plot(ndvi_2019, main = "NDVI in 2019", col = cl)
 plot(ndvi_2018, main = "NDVI in 2018", col = cl)
-# The plot() function is a base function in R (it doesn't belong to any additional package) that plots the data it receives as its first argument.
+# The plot() function is a base function in R (it doesn't belong to any additional packages) that plots the data it receives as its first argument.
 # A title can be added by specifying the "main" parameter, and a color scheme can be chosen thanks to "col".
